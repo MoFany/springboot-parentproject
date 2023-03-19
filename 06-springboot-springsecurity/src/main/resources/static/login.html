@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="/user/login" method="post">
+    用户名：
+    <!--  用户名的name属性值必须为：username，SpringSecurity源码中规定的不然不识别  -->
+    <input name="username" type="text">
+    <br>
+    密码：
+    <!--  密码的name属性值必须为：password，SpringSecurity源码中规定的不然不识别  -->
+    <input name="password" type="password">
+    <br>
+    <!--  自动登录复选框的name属性值必须为：remember-me，SpringSecurity源码中规定的不然不识别  -->
+    <input type="checkbox" name="remember-me">自动登录
+    <br>
+    <input type="submit" value="login">
+</form>
+</body>
+</html>

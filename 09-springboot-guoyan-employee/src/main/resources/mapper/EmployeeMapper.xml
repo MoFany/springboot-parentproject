@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mofany.mapper.EmployeeMapper">
+    <!--  结果集映射  -->
+    <resultMap id="BaseResult" type="com.mofany.entity.Employee">
+        <id property="keyId" column="keyId"/>
+        <result property="year" column="year"/>
+        <result property="month" column="month"/>
+        <result property="createDate" column="createDate"/>
+        <result property="fullName" column="fullName"/>
+        <result property="enCode" column="enCode"/>
+        <result property="sex" column="sex"/>
+        <result property="age" column="age"/>
+        <result property="sfz" column="sfz"/>
+        <result property="phone" column="phone"/>
+        <result property="grossPay" column="grossPay"/>
+        <result property="taxRatio" column="taxRatio"/>
+        <result property="netPay" column="netPay"/>
+    </resultMap>
+    <!--  动态sql多条件查询  -->
+    <select id="selectByEntity" parameterType="com.mofany.entity.Employee" resultMap="BaseResult">
+        select *
+        from employee
+        <where>
+            <if test="keyId != null">
+                or keyId = #{keyId,jdbcType=INTEGER}
+            </if>
+            <if test="year != null">
+                or year = #{year,jdbcType=INTEGER}
+            </if>
+            <if test="month != null">
+                or month = #{month,jdbcType=INTEGER}
+            </if>
+            <if test="createDate != null">
+                or createDate = #{createDate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="fullName != null and fullName != ''">
+                or fullName = #{fullName,jdbcType=VARCHAR}
+            </if>
+            <if test="enCode != null and enCode != ''">
+                or enCode = #{enCode,jdbcType=VARCHAR}
+            </if>
+            <if test="sex != null and sex != ''">
+                or sex = #{sex,jdbcType=VARCHAR}
+            </if>
+            <if test="age != null">
+                or age = #{age,jdbcType=INTEGER}
+            </if>
+            <if test="sfz != null and sfz != ''">
+                or sfz = #{sfz,jdbcType=VARCHAR}
+            </if>
+            <if test="phone != null and phone != ''">
+                or phone = #{phone,jdbcType=VARCHAR}
+            </if>
+            <if test="grossPay != null">
+                or grossPay = #{grossPay,jdbcType=DECIMAL}
+            </if>
+            <if test="taxRatio != null">
+                or taxRatio = #{taxRatio,jdbcType=FLOAT}
+            </if>
+            <if test="netPay != null">
+                or netPay = #{netPay,jdbcType=DECIMAL}
+            </if>
+        </where>
+    </select>
+    <!--  一次性查询全部数据  -->
+    <select id="queryAll" resultMap="BaseResult">
+        select *
+        from employee;
+    </select>
+</mapper>

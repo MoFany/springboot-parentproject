@@ -1,0 +1,16 @@
+#指定服务器端口
+server:
+  port: 8081
+
+#springboot静态资源放行
+spring:
+  mvc:
+    static-path-pattern: /templates/**
+  web:
+    resources:
+      static-locations:
+        - classpath:/templates/
+        - classpath:/META-INF/resources/
+        - classpath:/resources/
+        - classpath:/static/
+        - classpath:/public/

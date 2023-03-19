@@ -1,0 +1,17 @@
+#配置服务器端口
+server:
+  port: 8081
+#配置Spring数据源
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/java67?ServerTimezone=GMT%2B8
+    username: root
+    password: Jiangmh220
+#配置Mybatis
+mybatis:
+  type-aliases-package: com.mofan.entity                  # 包类型的别名
+  mapper-locations: classpath:mappers/*Mapper.xml         # 映射器文件路径
+  configuration:
+    map-underscore-to-camel-case: true                    # 开启驼峰映射，指将带有下划线的表字段映射为驼峰格式的实体类属性
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 日志打印

@@ -1,0 +1,18 @@
+#配置服务器
+server:
+  port: 8081
+
+#配置spring
+spring:
+  application:
+    name: HelloSpringBoot
+  mvc:
+    servlet:
+      path: /HelloSpringBoot
+  datasource:
+    username: root
+    password: Jiangmh220
+    url: jdbc:mysql://localhost:3306/java67?ServerTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#启动debug模式
+debug: true

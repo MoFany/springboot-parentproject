@@ -1,0 +1,13 @@
+# Project exclude paths
+/01-springboot-hello/target/
+/02-springboot-mybatis-redis/target/
+/02-springboot-yaml/target/
+/03-springboot-configs/target/
+/04-springboot-static-resource-handler/target/
+/05-springboot-custom-starters/target/
+/06-springboot-springsecurity/target/
+/07-springoot-mybatis/target/
+/08-springboot-starter-test/target/
+/09-springboot-guoyan-employee/target/
+/10-springboot-reids/target/
+/11-springboot-developer-test/target/

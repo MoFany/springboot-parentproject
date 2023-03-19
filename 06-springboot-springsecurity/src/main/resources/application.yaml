@@ -1,0 +1,17 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Jiangmh220
+    url: jdbc:mysql://localhost:3306/springboot_20230206?ServerTimezone=GMT%2B8
+  sql:
+    init:
+      mode: always                                   # 始终初始化数据库
+      schema-locations:
+        - classpath:persistentLogins-schema.sql      # 创建持久登录表Sql脚本
+        - classpath:users-schema.sql                 # 创建用户表Sql脚本
+      data-locations:
+        - classpath:users-data.sql                   # 数据插入Sql脚本
+

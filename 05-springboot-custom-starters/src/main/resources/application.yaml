@@ -1,0 +1,9 @@
+#指定端口
+server:
+  port: 8081
+
+# 配置Thymeleaf模版解析器、Thymeleaf模版引擎、Thymeleaf视图解析器
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/ # thymeleaf默认的根模版位置
+    suffix: .html

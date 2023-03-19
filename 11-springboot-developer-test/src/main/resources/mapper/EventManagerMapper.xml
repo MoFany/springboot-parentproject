@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mofany.mapper.EventManagerMapper">
+    <resultMap id="BaseResultMap" type="com.mofany.entity.EventManager">
+        <id property="id" column="id"/>
+        <result property="eventName" column="eventName"/>
+        <result property="eventAddress" column="eventAddress"/>
+        <result property="createDate" column="createDate"/>
+        <result property="startStatus" column="startStatus"/>
+    </resultMap>
+    <!--  查  -->
+    <select id="queryAllEvent" resultMap="BaseResultMap">
+        select *
+        from event_manager
+    </select>
+    <!--  新增  -->
+    <insert id="insertOneEvent" parameterType="com.mofany.entity.EventManager">
+        insert into event_manager
+        values (
+        null,
+        #{eventName,jdbcType=VARCHAR},
+        #{eventAddress,jdbcType=VARCHAR},
+        curdate(),
+        #{startStatus,jdbcType=INTEGER})
+    </insert>
+    <!-- 删除与批量删除 -->
+    <delete id="deleteEvent" parameterType="List">
+        delete
+        from event_manager
+        <where>
+            eventId in
+            <foreach item="ids" index="index" collection="list" open="(" separator="," close=")">
+                #{ids}
+            </foreach>
+        </where>
+    </delete>
+    <!--  更新  -->
+    <update id="updateEvent" parameterType="com.mofany.entity.EventManager">
+        update event_manager
+        <set>
+            eventName=#{eventName,jdbcType=VARCHAR},
+            eventAddress=#{eventAddress,jdbcType=VARCHAR},
+            createDate=curdate(),
+            startStatus=#{startStatus,jdbcType=INTEGER}
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
